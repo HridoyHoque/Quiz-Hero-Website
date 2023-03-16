@@ -44,21 +44,31 @@ startQuiz.addEventListener("click", () => {
 });
 
 // All quiz data fetched from json
-const loadQuiz = async () => {
-  const res = await fetch("./data/quiz.json");
-  const data = res.json();
-  quizData = data;
-  displayQuiz(data);
-};
+// const loadQuiz = async () => {
+//   const res = await fetch("./data/quiz.json");
+//   const data = res.json();
+//   quizData = data;
+//  return console.log("data info" ,result)
+//   displayQuiz(data);
+// };
+
+const loadQuiz = () => {
+fetch("./data/quiz.json")
+.then(res => res.json())
+.then(data => displayQuiz(data))
+}
 
 // Displaying quiz on quiz page
 const displayQuiz = (data) => {
+  
   if (!data) {
     quizContainer.innerHTML = "";
     return;
   }
 
+ else{
   data.forEach((quiz, i) => {
+    console.log(quiz)
     quizContainer.innerHTML += `<div class="m-3 py-3 px-4 shadow-sm rounded">
   <div class="flex items-center">
     <div class="h-8 w-8 bg-green-300 rounded-full flex justify-center items-center text-green-800 mr-3">
@@ -71,6 +81,7 @@ const displayQuiz = (data) => {
   </div>
 </div>`;
   });
+ }
 };
 
 // EventListener for quiz submit button
