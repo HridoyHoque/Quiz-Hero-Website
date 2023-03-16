@@ -1,6 +1,7 @@
 // এই পুরো ফাইলে কেও কোন কিছু পরিবর্তন করবেন না । এইখানে কোন Bug নেই ।
 
 // Handle Timer
+// This quizTimer function is used to set the timer of time consumed and this timer color wil be changed after 60 seconds. 
 const quizTimer = (dismiss) => {
   if (dismiss) {
     clearInterval(timer);
@@ -46,6 +47,7 @@ const displayQuizOptions = (quiz, i) => {
 };
 
 // select or choose quiz
+// This chooseQuiz function is used to select a specific answer from quize question answers and display answers results.
 const chooseQuiz = (index, givenAns) => {
   const isExist = answers.find((ans) => ans.id === quizData[index].id);
   if (isExist) {
